@@ -8,7 +8,8 @@ const options = ""
 
 const plaidClient = new plaid.Client(client_id, secret, public_key, plaid_env, options);
 
-module.exports.plaidClient = plaidClient;
+module.exports = plaidClient;
+
 
 // plaidClient.exchangePublicToken(public_token, function(err, res) {
 //   const access_token = res.access_token;
