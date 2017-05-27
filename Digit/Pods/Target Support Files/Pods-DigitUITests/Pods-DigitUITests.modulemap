@@ -1,0 +1,6 @@
+framework module Pods_DigitUITests {
+  umbrella header "Pods-DigitUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
