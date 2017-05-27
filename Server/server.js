@@ -17,7 +17,10 @@ var moment = require('moment');
 var request = require('request');
 
 // Load environment variables from .env file
-dotenv.load();
+// dotenv
+dotenv.load({
+  path: './config/vars.env'
+});
 
 // // ES6 Transpiler
 // require('babel-core/register');
