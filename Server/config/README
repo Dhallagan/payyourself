@@ -1,0 +1,2 @@
+A file containing environment variables should live in this directory. Copy
+vars.env.example and rename to "vars.env" with real values.
