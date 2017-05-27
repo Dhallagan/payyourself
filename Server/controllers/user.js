@@ -161,25 +161,16 @@ exports.plaidPost = function(req, res, next) {
     if (error != null) {
       var msg = 'Could not exchange public_token!';
       console.log(msg + '\n' + error);
-      return response.json({error: msg});
+      return res.json({error: msg});
     }
     ACCESS_TOKEN = tokenResponse.access_token;
     console.log('Access Token: ' + ACCESS_TOKEN);
-    response.json({'error': false});
+    console.log(req.user)
+    user = req.user
+    user.plaidToken = access_token;
+
+    res.json({'error': false});
   });
-
-  User.findById(req.user.id, function(err) {
-
-      plaidClient.exchangePublicToken(public_token, function(err, res) {
-      const access_token = res.access_token;
-
-      });
-      user.plaidToken = access_token;
-
-    //  user.save({ plaidToken: req.body.plaidToken }, function(err) {
-    //    res.send({user: user, msg: 'Your plaid token has been added.'});
-    //  });
-   });
  };
 
 /**
