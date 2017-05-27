@@ -6,13 +6,8 @@ var moment = require('moment');
 var request = require('request');
 var qs = require('querystring');
 var User = require('../models/User');
-var plaid = require('plaid')
 
-const client_id = "590e618bbdc6a44cd258c20c"
-const secret = "80fc7ebb3c6e485f330ec4106b2253"
-const public_key = "eb42c0dd0514ad997fb1677fcf68f0"
-const plaid_env = plaid.environments.sandbox
-const options = ""
+const plaidClient = require('./plaid');
 
 function generateToken(user) {
   var payload = {
@@ -159,7 +154,8 @@ exports.accountPut = function(req, res, next) {
  */
 exports.plaidPost = function(req, res, next) {
 
-  public_token = res.public_token
+  public_token = req.body.public_token;
+  console.log(`public_token = ${public_token}`);
 
   User.findById(req.user.id, function(err) {
 
