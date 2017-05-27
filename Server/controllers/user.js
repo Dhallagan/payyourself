@@ -154,8 +154,19 @@ exports.accountPut = function(req, res, next) {
  */
 exports.plaidPost = function(req, res, next) {
 
-  public_token = req.body.public_token;
+  const public_token = req.body.plaidToken;
   console.log(`public_token = ${public_token}`);
+
+  plaidClient.exchangePublicToken(public_token, function(error, tokenResponse) {
+    if (error != null) {
+      var msg = 'Could not exchange public_token!';
+      console.log(msg + '\n' + error);
+      return response.json({error: msg});
+    }
+    ACCESS_TOKEN = tokenResponse.access_token;
+    console.log('Access Token: ' + ACCESS_TOKEN);
+    response.json({'error': false});
+  });
 
   User.findById(req.user.id, function(err) {
 
