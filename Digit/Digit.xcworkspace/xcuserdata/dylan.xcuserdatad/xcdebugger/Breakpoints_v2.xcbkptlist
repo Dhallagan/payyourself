@@ -26,7 +26,7 @@
                   moduleName = "Digit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517606845.289084"
+                  timestampString = "517611213.223376"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "46"
@@ -41,7 +41,7 @@
                   moduleName = "Digit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517606845.29069"
+                  timestampString = "517611213.225272"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -58,54 +58,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Digit/LinkAccountsViewController.swift"
-            timestampString = "515721071.461"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "handleSuccessWithToken(_:metadata:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Digit.LinkAccountsViewController.handleSuccessWithToken (Swift.String, metadata : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()"
-                  moduleName = "Digit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517262876.974967"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "87">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Digit.LinkAccountsViewController.(handleSuccessWithToken (Swift.String, metadata : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()).(implicit closure #1)"
-                  moduleName = "Digit"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517262876.976434"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Digit/LinkAccountsViewController.swift"
             timestampString = "517262826.010326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -115,14 +67,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Digit.LinkAccountsViewController.(linkViewController (__ObjC.PLKPlaidLinkViewController, didSucceedWithPublicToken : Swift.String, metadata : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()).(closure #1)"
                   moduleName = "Digit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517606845.30991"
+                  timestampString = "517610483.44188"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -130,14 +82,14 @@
                   offsetFromSymbolStart = "53">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Digit.LinkAccountsViewController.(linkViewController (__ObjC.PLKPlaidLinkViewController, didSucceedWithPublicToken : Swift.String, metadata : Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()).(closure #1).(implicit closure #1)"
                   moduleName = "Digit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/dylan/Documents/Development/iOS/Digit/Digit/Digit/LinkAccountsViewController.swift"
-                  timestampString = "517606845.311515"
+                  timestampString = "517610483.444526"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "75"
@@ -145,22 +97,6 @@
                   offsetFromSymbolStart = "12">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Digit/LinkAccountsViewController.swift"
-            timestampString = "517262915.935369"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "handleSuccessWithToken(_:metadata:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -182,16 +118,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Digit/PayYourselfAPI.swift"
-            timestampString = "517264762.731058"
+            timestampString = "517611280.358983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "loginPost(email:password:completion:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "plaidPost(plaidToken:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

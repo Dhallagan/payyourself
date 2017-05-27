@@ -96,8 +96,6 @@ class PayYourselfAPI {
                 if response.response?.statusCode == 200 {
                     print("LOGIN_SUCCESS with JSON: \(response.result.value!)")
                     if let responseDic = response.value as? [String : Any] {
-//                        self.accessToken = responseDic["token"] as! String
-//                        print(self.accessToken)
                         
                         return completion(responseDic, nil)
                     }
@@ -110,7 +108,7 @@ class PayYourselfAPI {
                     }
                 }
         }
-
+        print("token ",plaidToken )
     }
     
     func logout(){
