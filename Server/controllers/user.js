@@ -48,19 +48,12 @@ exports.getUser = function(req, res, next) {
 
 exports.updateUser = function(req, res, next) {
   console.log('Updating user with data', req.body);
-  Object.keys(req.body).forEach(prop => {
-    console.log(prop, req.body[prop])
-  });
-  
-  req.user.plaidAccessKey = 'x';
+  Object.assign(req.user, req.body);
   req.user.save((error, updatedUser) => {
     if (error) return res.json({ error });
-    
     res.json(updatedUser);
-  })
-  // req.user.save(req.body);
-  // res.json({adf: 'asdf'});
-}
+  });
+};
 
   /**
    * POST /login
