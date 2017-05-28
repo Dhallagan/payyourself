@@ -20,6 +20,9 @@
 		FC40598F1ED73B1300766C4E /* SetExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC40598E1ED73B1300766C4E /* SetExpensesViewController.swift */; };
 		FC4059911ED73C3800766C4E /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4059901ED73C3800766C4E /* Expense.swift */; };
 		FC4059931ED7440D00766C4E /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4059921ED7440D00766C4E /* Goal.swift */; };
+		FC4059961EDB0A2A00766C4E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4059951EDB0A2A00766C4E /* WelcomeViewController.swift */; };
+		FC4059981EDB10B400766C4E /* ExpenseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4059971EDB10B400766C4E /* ExpenseStore.swift */; };
+		FC40599A1EDB150F00766C4E /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4059991EDB150F00766C4E /* ExpenseCell.swift */; };
 		FC6091021EA6A97100826D4C /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6091011EA6A97100826D4C /* TransactionsViewController.swift */; };
 		FC6091041EA6AB1000826D4C /* TransactionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6091031EA6AB1000826D4C /* TransactionStore.swift */; };
 		FC6091061EA6AC0A00826D4C /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6091051EA6AC0A00826D4C /* Transaction.swift */; };
@@ -76,6 +79,9 @@
 		FC40598E1ED73B1300766C4E /* SetExpensesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetExpensesViewController.swift; sourceTree = "<group>"; };
 		FC4059901ED73C3800766C4E /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		FC4059921ED7440D00766C4E /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		FC4059951EDB0A2A00766C4E /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FC4059971EDB10B400766C4E /* ExpenseStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseStore.swift; sourceTree = "<group>"; };
+		FC4059991EDB150F00766C4E /* ExpenseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		FC6091011EA6A97100826D4C /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		FC6091031EA6AB1000826D4C /* TransactionStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionStore.swift; sourceTree = "<group>"; };
 		FC6091051EA6AC0A00826D4C /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -169,19 +175,22 @@
 				FC0A4F6C1EA5B06C00AE8A6F /* DashboardViewController.swift */,
 				FC0A4F6E1EA5B06C00AE8A6F /* Main.storyboard */,
 				FC6091011EA6A97100826D4C /* TransactionsViewController.swift */,
+				FC6091071EA7128100826D4C /* TransactionCell.swift */,
 				FC6091051EA6AC0A00826D4C /* Transaction.swift */,
 				FC6091031EA6AB1000826D4C /* TransactionStore.swift */,
+				FC4059951EDB0A2A00766C4E /* WelcomeViewController.swift */,
 				FC4059901ED73C3800766C4E /* Expense.swift */,
+				FC4059971EDB10B400766C4E /* ExpenseStore.swift */,
+				FC4059991EDB150F00766C4E /* ExpenseCell.swift */,
+				FC40598E1ED73B1300766C4E /* SetExpensesViewController.swift */,
 				FC4059921ED7440D00766C4E /* Goal.swift */,
 				FCAD55251EBBC01D006171CC /* PayYourselfAPI.swift */,
-				FC40598E1ED73B1300766C4E /* SetExpensesViewController.swift */,
 				FCA37E2D1EB8E6D8009486CB /* SetupGoalsViewController.swift */,
 				FCAD553C1EBFA3B9006171CC /* User.swift */,
 				FCA37E2B1EB8E448009486CB /* LinkAccountsViewController.swift */,
 				FCA37DD91EB39667009486CB /* ProfileViewContoller.swift */,
 				FCA37E271EB7D42C009486CB /* LoginViewController.swift */,
 				FCA37E291EB8E14A009486CB /* RegisterViewController.swift */,
-				FC6091071EA7128100826D4C /* TransactionCell.swift */,
 				FC0A4F711EA5B06C00AE8A6F /* Assets.xcassets */,
 				FC0A4F731EA5B06C00AE8A6F /* LaunchScreen.storyboard */,
 				FC0A4F761EA5B06C00AE8A6F /* Info.plist */,
@@ -511,11 +520,14 @@
 				FCAD55261EBBC01D006171CC /* PayYourselfAPI.swift in Sources */,
 				FCA37E2A1EB8E14A009486CB /* RegisterViewController.swift in Sources */,
 				FCA37E2E1EB8E6D8009486CB /* SetupGoalsViewController.swift in Sources */,
+				FC4059961EDB0A2A00766C4E /* WelcomeViewController.swift in Sources */,
 				FC6091041EA6AB1000826D4C /* TransactionStore.swift in Sources */,
 				FC0A4F6D1EA5B06C00AE8A6F /* DashboardViewController.swift in Sources */,
+				FC4059981EDB10B400766C4E /* ExpenseStore.swift in Sources */,
 				FCA37DDA1EB39667009486CB /* ProfileViewContoller.swift in Sources */,
 				FC4059931ED7440D00766C4E /* Goal.swift in Sources */,
 				FC6091081EA7128100826D4C /* TransactionCell.swift in Sources */,
+				FC40599A1EDB150F00766C4E /* ExpenseCell.swift in Sources */,
 				FC4059911ED73C3800766C4E /* Expense.swift in Sources */,
 				FC40598F1ED73B1300766C4E /* SetExpensesViewController.swift in Sources */,
 				FCA37E281EB7D42C009486CB /* LoginViewController.swift in Sources */,

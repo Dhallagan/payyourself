@@ -20,16 +20,11 @@ class Expense: NSObject {
         super.init()
     }
     
-//    convenience init(random: Bool = false) {
-//        let standardExpenses = [["Rent", 0],
-//                                ["Phone", 0],
-//                                ["Car Insurance", 0],
-//                                ["Student Loans",0],
-//                                ["Food", 0],
-//                                ["Gas",0]]
-//        
-//        self.init(name: randomName, serialNumber: randomSerialNumber, valueInDollars: randomValue)
-//        } else {
-//        self.init(name: "", serialNumber: nil, valueInDollars: 0)
-//        }
+    convenience init(testdata: Bool = false, expense: String, price: Int) {
+        if testdata {
+           self.init(expense: expense, valueInDollars: price);
+        } else {
+            self.init(expense: "", valueInDollars: 0);
+        }
+    }
 }

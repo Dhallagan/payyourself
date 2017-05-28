@@ -46,7 +46,7 @@ class LinkAccountsViewController: UIViewController {
         PayYourselfAPI.shared.plaidPost(plaidToken: publicToken){ (userInfo, error) in
             if(userInfo != nil){
                 print(userInfo)
-                self.performSegue(withIdentifier: "showSetupGoals", sender: self)
+                self.performSegue(withIdentifier: "showWelcome", sender: self)
             } else {
                 print(error)
                 

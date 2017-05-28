@@ -65,11 +65,14 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "showDashboard" {
-//            
-//            let dashboardViewController = segue.destination as! DashboardViewController
-//            dashboardViewController.loggedInUser = loggedInUser
-//        }
+        if segue.identifier == "showDashboard" {
+            
+            let navigationViewController = segue.destination as? UINavigationController
+            let setDashboardViewController = navigationViewController?.viewControllers.first as! DashboardViewController
+            setDashboardViewController.loggedInUser = loggedInUser
+            //            setExpensesViewController.expenseStore = expenseStore
+            
+        }
     }
     
     

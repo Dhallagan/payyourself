@@ -23,9 +23,16 @@ class User {
         self.email = email
         self.userID = userID
         self.accessToken = accessToken
+        
+        
     }
+    
+
     
     func addGoal(goal: String, amount: Int){
         
     }
+    
+    
 }
+
