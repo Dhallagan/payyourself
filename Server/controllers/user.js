@@ -178,12 +178,13 @@ exports.plaidPost = function(req, res, next) {
       console.log(msg + '\n' + error);
       return res.json({error: msg});
     }
-    plaidAccessKey = tokenResponse.access_token;
-    console.log('Access Token:', plaidAccessKey);
-    user = req.user
-    user.save({ plaidAccessKey });
 
-    res.json({'error': false});
+    req.user.plaidAccessKey = tokenResponse.access_token;
+    req.user.save((err, updateUser) => {
+      if (error) return res.json({ error });
+
+      res.json({ success: true });
+    });
   });
  };
 
