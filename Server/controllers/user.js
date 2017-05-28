@@ -46,6 +46,22 @@ exports.getUser = function(req, res, next) {
   return res.json(req.user);
 };
 
+exports.updateUser = function(req, res, next) {
+  console.log('Updating user with data', req.body);
+  Object.keys(req.body).forEach(prop => {
+    console.log(prop, req.body[prop])
+  });
+  
+  req.user.plaidAccessKey = 'x';
+  req.user.save((error, updatedUser) => {
+    if (error) return res.json({ error });
+    
+    res.json(updatedUser);
+  })
+  // req.user.save(req.body);
+  // res.json({adf: 'asdf'});
+}
+
   /**
    * POST /login
    * Sign in with email and password
@@ -169,11 +185,10 @@ exports.plaidPost = function(req, res, next) {
       console.log(msg + '\n' + error);
       return res.json({error: msg});
     }
-    ACCESS_TOKEN = tokenResponse.access_token;
-    console.log('Access Token: ' + ACCESS_TOKEN);
-    console.log(req.user)
+    plaidAccessKey = tokenResponse.access_token;
+    console.log('Access Token:', plaidAccessKey);
     user = req.user
-    user.plaidToken = access_token;
+    user.save({ plaidAccessKey });
 
     res.json({'error': false});
   });

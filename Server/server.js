@@ -95,7 +95,8 @@ app.use(function(req, res, next) {
 
 
 app.post('/signup', userController.signupPost);
-app.get('/me', userController.getUser);
+app.get('/me', userController.ensureAuthenticated, userController.getUser);
+app.post('/me', userController.ensureAuthenticated, userController.updateUser);
 app.post('/login', userController.loginPost);
 app.post('/forgot', userController.forgotPost);
 app.post('/reset/:token', userController.resetPost);
