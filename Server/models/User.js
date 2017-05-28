@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
   location: String,
   website: String,
   picture: String,
-  plaidToken: String,
+  plaidAccessKey: String,
   accounts: [{
 	   accountNumber: String,
      name: String
