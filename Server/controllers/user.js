@@ -40,6 +40,12 @@ exports.loginGet = function(req, res, next) {
     res.send({ msg: 'Reached Login' });
   }
 };
+
+exports.getUser = function(req, res, next) {
+  console.log('this is getUser');
+  return res.json(req.user);
+};
+
   /**
    * POST /login
    * Sign in with email and password

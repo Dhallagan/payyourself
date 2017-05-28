@@ -1,6 +1,8 @@
-var crypto = require('crypto');
-var bcrypt = require('bcrypt-nodejs');
-var mongoose = require('mongoose');
+const crypto = require('crypto');
+const bcrypt = require('bcrypt-nodejs');
+const mongoose = require('mongoose');
+const mongooseFieldEncryption = require('mongoose-field-encryption').fieldEncryption;
+
 
 var schemaOptions = {
   timestamps: true,
@@ -59,6 +61,7 @@ userSchema.options.toJSON = {
   }
 };
 
-var User = mongoose.model('User', userSchema);
+userSchema.plugin(mongooseFieldEncryption, {fields: ['plaidAccessKey'], secret: 'some secret key'});
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
