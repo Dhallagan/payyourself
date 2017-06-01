@@ -9,16 +9,17 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    var loggedInUser = [String:Any]()
+    var loggedInUser = User()
+    
     @IBOutlet var nickName: UILabel!
     @IBOutlet var accessToken: UILabel!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(loggedInUser)
-        nickName.text = loggedInUser["name"] as! String
-//        accessToken.text = loggedInUser.plaidAccessKey as
+        loggedInUser.printUser()
+        nickName.text = loggedInUser.firstName
+        //        accessToken.text = loggedInUser.plaidAccessKey as
     }
     
     override func viewWillAppear(_ animated: Bool) {

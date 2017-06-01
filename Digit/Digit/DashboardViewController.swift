@@ -9,8 +9,7 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
-    
-   var loggedInUser = [String:Any]()
+    var loggedInUser = User()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,9 @@ class DashboardViewController: UIViewController {
             //Get transactions and pass it along
             
            
-            let profileController = segue.destination as! ProfileViewController
+            let profileViewController = segue.destination as! ProfileViewController
+
+            profileViewController.loggedInUser = loggedInUser
             
         default:
             preconditionFailure("Unexpected Segue Identifier")

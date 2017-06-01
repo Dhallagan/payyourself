@@ -10,7 +10,7 @@ import UIKit
 
 class TransactionsViewController: UITableViewController {
     var transactionStore: TransactionStore!
- 
+    var loggedInUser = User()
     
     
     override func viewDidLoad() {

@@ -26,6 +26,10 @@ var userSchema = new mongoose.Schema({
 	   accountNumber: String,
      name: String
     }],
+  expenses: [{expense: String,
+              amount: String,
+              dateCreated: String}],
+  transactions:[]
 }, schemaOptions);
 
 userSchema.pre('save', function(next) {

@@ -16,8 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var msg: UILabel!
     
-    var loggedInUser = [String:Any]()
-    
+    var loggedInUser = User()
     
     
     override func viewDidLoad() {
@@ -35,20 +34,15 @@ class LoginViewController: UIViewController {
             
             if(userInfo != nil){
                 debugPrint(userInfo)
-                self.loggedInUser = userInfo as! [String: Any]
-                
+                self.loggedInUser.setUser(firstName: userInfo.firstName as! String!,
+                                          email: userInfo.email as! String!,
+                                          bearerToken: userInfo.bearerToken as! String!,
+                                          accessToken: "" as! String
+                )
                 self.performSegue(withIdentifier: "showDashboard", sender: self)
             } else {
                 print("Here: \(error)")
                 
-                //               var errorMessages = String()
-                //                for i in 0...error!.count-1 {
-                //
-                //
-                //                    var messages = error![i]["msg"]
-                //                        errorMessages.append("\(messages)\n")
-                //
-                //                }
                 let alertController = UIAlertController(title: "Login", message:
                     "Invalid username or password", preferredStyle: UIAlertControllerStyle.alert)
                 
@@ -70,6 +64,8 @@ class LoginViewController: UIViewController {
             let navigationViewController = segue.destination as? UINavigationController
             let setDashboardViewController = navigationViewController?.viewControllers.first as! DashboardViewController
             setDashboardViewController.loggedInUser = loggedInUser
+            print("Login View User:")
+            print(loggedInUser)
             //            setExpensesViewController.expenseStore = expenseStore
             
         }

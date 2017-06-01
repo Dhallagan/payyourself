@@ -12,7 +12,7 @@ import Alamofire
 
 class LinkAccountsViewController: UIViewController {
     
-    var loggedInUser = [String:Any]()
+    var loggedInUser = User()
 
     
     @IBAction func didTapButton(_ sender: Any?) {

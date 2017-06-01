@@ -9,9 +9,11 @@
 import UIKit
 
 class SetExpensesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var loggedInUser = [String:Any]()
-    @IBOutlet var expensesTableView: UITableView!
+    
+    var loggedInUser = User()
     var expenseStore: ExpenseStore!
+    
+    @IBOutlet var expensesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

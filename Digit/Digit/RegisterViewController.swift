@@ -17,8 +17,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet var password: UITextField!
     @IBOutlet var confirmPassword: UITextField!
     
-    var loggedInUser = [String:Any]()
-
+//    var loggedInUser = [String:Any]()
+    var loggedInUser = User()
     
     func exit() {
         dismiss(animated: true, completion: nil)
@@ -37,14 +37,14 @@ class RegisterViewController: UIViewController {
             
             var email2 = email.text!
             var password2 = password.text!
-                PayYourselfAPI.shared.signupPost(name: name.text!, email: email.text!, password: password.text! ) { (userInfo, error)   in
+                PayYourselfAPI.shared.registerPost(name: name.text!, email: email.text!, password: password.text! ) { (userInfo, error)   in
             
                 if(userInfo != nil){
                     PayYourselfAPI.shared.loginPost(email: email2, password: password2 ) { (userInfo, error) in
                         
                         if(userInfo != nil){
                             debugPrint(userInfo)
-                            self.loggedInUser = userInfo as! [String: Any]
+                            self.loggedInUser = userInfo as! User
                             
                             self.performSegue(withIdentifier: "showLinkAccounts", sender: self)
                         } else {

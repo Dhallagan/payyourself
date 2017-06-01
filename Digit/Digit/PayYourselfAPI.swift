@@ -20,6 +20,7 @@ class PayYourselfAPI {
     let plaidURL = "http://localhost:3000/plaid"
     
     var accessToken = String()
+    var loggedInUser = User()
     
     //    func post(parameters: parameters){
     //        let headers: HTTPHeaders = ["Content-Type" : "application/json"]
@@ -36,7 +37,7 @@ class PayYourselfAPI {
     //    }
     //
     
-    func signupPost(name: String, email: String, password: String,  completion: @escaping (_ userInfo: [String : Any]?, _ error: [String : Any]?) -> Void) {
+    func registerPost(name: String, email: String, password: String,  completion: @escaping (_ userInfo: User, _ error: [String : Any]?) -> Void) {
         let headers: HTTPHeaders = ["Content-Type" : "application/json"]
         let parameters: Parameters = ["name": "\(name)","email": "\(email)","password": "\(password)"]
         Alamofire.request(signupURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
@@ -44,23 +45,30 @@ class PayYourselfAPI {
             .responseJSON { response in
                 if response.response?.statusCode == 200 {
                     print("SUCCESS_FAILURE with JSON: \(response.result.value!)")
-                    if let responseDic = response.value as? [String : Any] {
-                        debugPrint(responseDic)
-                        return completion(responseDic, nil)
+                    if let userInfo = response.value as? [String : Any] {
+                        
+                        self.loggedInUser.setUser(firstName: userInfo["name"] as! String!,
+                                                  email: userInfo["email"] as! String!,
+                                                  bearerToken: userInfo["token"] as! String!,
+                                                  accessToken: "" as! String!
+                                                  )
+                        
+                        self.loggedInUser.printUser()
+                        return completion(self.loggedInUser, nil)
                     }
                 } else {
                     print("PLAID_FAILURE with JSON: \(response.result.value!)")
                     
                     if let error = response.result.value as? [String: Any] {
                         //If you want array of task id you can try like
-                        return completion(nil, error)
+                        return completion(self.loggedInUser, error)
                     }
                 }
         }
         
     }
     
-    func loginPost(email: String, password: String, completion: @escaping (_ userInfo: [String : Any]?, _ error: [[String : Any]]?) -> Void) {
+    func loginPost(email: String, password: String, completion: @escaping (_ userInfo: User, _ error: [[String : Any]]?) -> Void) {
         let headers: HTTPHeaders = ["Content-Type" : "application/json"]
         let parameters: Parameters = ["email": "\(email)","password": "\(password)"]
         
@@ -69,18 +77,23 @@ class PayYourselfAPI {
             .responseJSON { response in
                 if response.response?.statusCode == 200 {
                     print("LOGIN_SUCCESS with JSON: \(response.result.value!)")
-                    if let responseDic = response.value as? [String : Any] {
-                        self.accessToken = responseDic["token"] as! String
-                        print(self.accessToken)
+                    if let userInfo = response.value as? [String : Any] {
+                        self.accessToken = userInfo["token"] as! String
                         
-                        return completion(responseDic, nil)
+                        self.loggedInUser.setUser(firstName: userInfo["name"] as! String!,
+                                                  email: userInfo["email"] as! String!,
+                                                  bearerToken: userInfo["token"] as! String!,
+                                                  accessToken: "" as! String
+                        )
+                        
+                        return completion(self.loggedInUser, nil)
                     }
                 } else {
                     print("LOGIN_FAILURE with JSON: \(response.result.value!)")
                     
                     if let error = response.result.value as? [[String: Any]] {
                         //If you want array of task id you can try like
-                        return completion(nil, error)
+                        return completion(self.loggedInUser, error)
                     }
                 }
         }

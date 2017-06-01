@@ -1,0 +1,15 @@
+PODS:
+  - Alamofire (4.4.0)
+  - Plaid (1.0.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - Plaid
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  Plaid: 5baf9ca5f7728386d13a2f499f18e76ac1cfb290
+
+PODFILE CHECKSUM: 6e00e85bd06ff13a5fbceac20bfadf6b31600a27
+
+COCOAPODS: 1.2.1

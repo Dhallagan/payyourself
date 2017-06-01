@@ -27,8 +27,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PayYourself-152" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-Ka-gHK">
-                                <rect key="frame" x="157" y="272" width="60" height="60"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="piggy" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-Ka-gHK">
+                                <rect key="frame" x="159" y="272" width="97" height="86"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.72941176470000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -36,8 +36,8 @@
                         <constraints>
                             <constraint firstItem="cFY-Ka-gHK" firstAttribute="top" secondItem="m7K-LY-Z3A" secondAttribute="bottom" constant="160" id="4GX-7c-mB6"/>
                             <constraint firstItem="m7K-LY-Z3A" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="B1p-ea-E9z"/>
+                            <constraint firstItem="cFY-Ka-gHK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="20" id="HYm-UE-uKY"/>
                             <constraint firstItem="m7K-LY-Z3A" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lwB-Bg-uzv"/>
-                            <constraint firstItem="cFY-Ka-gHK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rA8-kW-ALQ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -47,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PayYourself-152" width="60" height="60"/>
+        <image name="piggy" width="97" height="86"/>
     </resources>
 </document>

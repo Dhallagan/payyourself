@@ -9,7 +9,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    var loggedInUser = [String:Any]()
+    var loggedInUser = User()
     
     @IBAction func showSetExpenses(_ sender: UIButton?){
         self.performSegue(withIdentifier: "showSetExpenses", sender: self)
