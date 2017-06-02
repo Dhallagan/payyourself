@@ -4,7 +4,7 @@ var moment = require('moment');
 var agenda = new Agenda ({db:{address: 'mongodb://localhost/beta_payyourself' , collection: 'jobs'}});
 
 
-agenda.define('Get New Transactions', function(job) {
+agenda.define('Fetch New Transactions', function(job) {
   console.log("PROCESSING - Getting new transactions...");
 });
 
@@ -17,7 +17,7 @@ agenda.on('complete', function(job) {
 });
 
 agenda.on('ready', () => {
-  agenda.now('Get New Transactions');
-  agenda.every('1 minute', 'Get New Transactions');
+  agenda.now('Fetch New Transactions');
+  agenda.every('1 minute', 'Fetch New Transactions');
   agenda.start()
 })
