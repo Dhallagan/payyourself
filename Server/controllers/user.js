@@ -7,7 +7,7 @@ var request = require('request');
 var qs = require('querystring');
 var User = require('../models/User');
 
-const plaidClient = require('./plaid');
+const plaidClient = require('../config/plaid');
 
 function generateToken(user) {
   var payload = {
@@ -256,7 +256,7 @@ exports.plaidPost = function(req, res, next) {
               }
               console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
               console.log(transactionsResponse.transactions);
-              
+
               //GET NEW AND OLD TRANSACTIONS
               transactions = transactionsResponse.transactions
               userTransactions = user.transactions
@@ -268,7 +268,8 @@ exports.plaidPost = function(req, res, next) {
                   }).length == 0
               });
 
-
+              //THIS PROBOBALY IS NOT NECESSARY, NOW THAT CONCAT FUNCTION IS
+              // WORKING, BUT I DON'T WANT TO BREAK IT NOW.  TO FIX LATER
               if(userTransactions == null){
                 user.transactions = transactions
               } else {
@@ -281,7 +282,6 @@ exports.plaidPost = function(req, res, next) {
                 res.send({ user: user, msg: 'Transactions have been updated.' });
               });
           });
-
       });
   };
 
