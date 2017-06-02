@@ -238,35 +238,16 @@ exports.plaidPost = function(req, res, next) {
     });
   };
 
-  /**
-   * Post /transactions
-   * Update plaid token .
-   */
-  // exports.transactionGet = function(req, res, next) {
-  //    User.findById(req.user.id, function(err, user) {
-  //      user.expenses = req.body.expenses;
-  //      user.save(function(err) {
-  //        if ('password' in req.body) {
-  //          res.send({ msg: 'Your password has been changed.' });
-  //        } else if (err && err.code === 11000) {
-  //          res.status(409).send({ msg: 'The email address you have entered is already associated with another account.' });
-  //        } else {
-  //          res.send({ user: user, msg: 'Your profile information has been updated.' });
-  //        }
-  //      });
-  //    });
-  //  };
-
 
  exports.transactionsPost = function(req, res, next) {
       User.findById(req.user.id, function(err, user) {
           const access_token = user.plaidAccessKey;
           console.log("Access Token: " + access_token)
 
-          var startDate = moment().subtract(60, 'days').format('YYYY-MM-DD');
-          var endDate = moment().format('YYYY-MM-DD');
+          var startDate = moment().subtract(183, 'days').format('YYYY-MM-DD');
+          var endDate = moment().subtract(0, 'days').format('YYYY-MM-DD');
           plaidClient.getTransactions(access_token, startDate, endDate, {
-              count: 250,
+              count: 500,
               offset: 0,
           }, function(error, transactionsResponse) {
               if (error != null) {
@@ -291,15 +272,16 @@ exports.plaidPost = function(req, res, next) {
                   }).length == 0
               });
 
-              var result = onlyInA.concat(onlyInB);
-              console.log("++++++++++++++")
-              console.log("+ Difference +")
-              console.log("++++++++++++++")
-              console.log(result)
-              // ADD THE DIFFERENCE TO THE USER PROFILE
-              // SHOULD I SORT? DATES FOR MARKOV CHAIN ANALYSIS, I THINK.
+              var result = onlyInA;
+              
+              if(userTransactions == null){
+                user.transactions = transactions
+              } else {
+                userTransactions = userTransactions.concat(result)
+                userTransactions.sort(custom_sort)
+                user.transactions = userTransactions
+              }
 
-              user.transactions = transactions
               user.save(function(err){
                 res.send({ user: user, msg: 'Transactions have been updated.' });
               });
@@ -308,6 +290,10 @@ exports.plaidPost = function(req, res, next) {
       });
   };
 
+
+  function custom_sort(a, b) {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+  }
 
 /**
  * DELETE /account
