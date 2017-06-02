@@ -11,6 +11,7 @@
     "watch:js": "watchify app/main.js -t [ babelify --presets [es2015 react] ] -v -o public/js/bundle.js"
   },
   "dependencies": {
+    "agenda": "^0.9.1",
     "array": "^0.4.3",
     "async": "^1.5.2",
     "babel-core": "^6.7.2",

@@ -16,6 +16,8 @@ var jwt = require('jsonwebtoken');
 var moment = require('moment');
 var request = require('request');
 
+const agenda = require('./scheduling/scheduling.js');
+
 // Load environment variables from .env file
 // dotenv
 dotenv.load({
@@ -122,5 +124,7 @@ if (app.get('env') === 'production') {
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+
 
 module.exports = app;

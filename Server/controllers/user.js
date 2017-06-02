@@ -275,29 +275,10 @@ exports.plaidPost = function(req, res, next) {
               }
               console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
               console.log(transactionsResponse.transactions);
-
+              //GET NEW AND OLD TRANSACTIONS
               transactions = transactionsResponse.transactions
               userTransactions = user.transactions
-              // var arr1 = [];
-              // var arr2 = [];
-              // var diff = [];
-              // for (index = 0; index < transactions.length; ++index) {
-              //     console.log(transactions[index].transaction_id);
-              //     arr1.push(transactions[index].transaction_id)
-              //
-              // }
-              //
-              // userTransactions = user.transactions
-              // for (index = 0; index < userTransactions.length; ++index) {
-              //     console.log(userTransactions[index].transaction_id);
-              //     arr2.push(userTransactions[index].transaction_id)
-              // }
-              // if (user.transactions = nil){
-              //
-              // } else {
-              //   diff = difference(arr1, arr2)
-              // }
-              //This is only going to push transactions id's
+              //COMPARE THEM TO FIND DIFFERENCE IN
               var onlyInA = transactions.filter(function(current){
                   return userTransactions.filter(function(current_b){
                       return current_b.transaction_id == current.transaction_id
@@ -315,8 +296,8 @@ exports.plaidPost = function(req, res, next) {
               console.log("+ Difference +")
               console.log("++++++++++++++")
               console.log(result)
-
-
+              // ADD THE DIFFERENCE TO THE USER PROFILE
+              // SHOULD I SORT? DATES FOR MARKOV CHAIN ANALYSIS, I THINK.
 
               user.transactions = transactions
               user.save(function(err){
