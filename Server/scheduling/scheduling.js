@@ -1,7 +1,13 @@
 
 var Agenda = require('agenda');
 var moment = require('moment');
-var agenda = new Agenda ({db:{address: 'mongodb://localhost/beta_payyourself' , collection: 'jobs'}});
+var dotenv = require('dotenv');
+
+dotenv.load({
+  path: './config/vars.env'
+});
+
+var agenda = new Agenda ({db:{address: process.env.MONGODB , collection: 'jobs'}});
 
 
 agenda.define('Fetch New Transactions', function(job) {
