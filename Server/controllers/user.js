@@ -263,7 +263,7 @@ exports.plaidPost = function(req, res, next) {
           const access_token = user.plaidAccessKey;
           console.log("Access Token: " + access_token)
 
-          var startDate = moment().subtract(120, 'days').format('YYYY-MM-DD');
+          var startDate = moment().subtract(60, 'days').format('YYYY-MM-DD');
           var endDate = moment().format('YYYY-MM-DD');
           plaidClient.getTransactions(access_token, startDate, endDate, {
               count: 250,
@@ -277,28 +277,47 @@ exports.plaidPost = function(req, res, next) {
               console.log(transactionsResponse.transactions);
 
               transactions = transactionsResponse.transactions
-              var arr1 = [];
-              var arr2 = [];
-              var diff = [];
-              for (index = 0; index < transactions.length; ++index) {
-                  console.log(transactions[index].transaction_id);
-                  arr1.push(transactions[index].transaction_id)
-
-              }
-
               userTransactions = user.transactions
-              for (index = 0; index < userTransactions.length; ++index) {
-                  console.log(userTransactions[index].transaction_id);
-                  arr2.push(userTransactions[index].transaction_id)
-              }
-
-              if (user.transactions = nil){
-
-              } else {
-                diff = difference(arr1, arr2)
-              }
+              // var arr1 = [];
+              // var arr2 = [];
+              // var diff = [];
+              // for (index = 0; index < transactions.length; ++index) {
+              //     console.log(transactions[index].transaction_id);
+              //     arr1.push(transactions[index].transaction_id)
+              //
+              // }
+              //
+              // userTransactions = user.transactions
+              // for (index = 0; index < userTransactions.length; ++index) {
+              //     console.log(userTransactions[index].transaction_id);
+              //     arr2.push(userTransactions[index].transaction_id)
+              // }
+              // if (user.transactions = nil){
+              //
+              // } else {
+              //   diff = difference(arr1, arr2)
+              // }
               //This is only going to push transactions id's
-              userTransactions.push(diff)
+              var onlyInA = transactions.filter(function(current){
+                  return userTransactions.filter(function(current_b){
+                      return current_b.transaction_id == current.transaction_id
+                  }).length == 0
+              });
+
+              var onlyInB = userTransactions.filter(function(current){
+                  return transactions.filter(function(current_a){
+                      return current_a.transaction_id == current.transaction_id
+                  }).length == 0
+              });
+
+              var result = onlyInA.concat(onlyInB);
+              console.log("++++++++++++++")
+              console.log("+ Difference +")
+              console.log("++++++++++++++")
+              console.log(result)
+
+
+
               user.transactions = transactions
               user.save(function(err){
                 res.send({ user: user, msg: 'Transactions have been updated.' });
@@ -308,39 +327,7 @@ exports.plaidPost = function(req, res, next) {
       });
   };
 
-  var indexOf = Array.prototype.indexOf || function(elem) {
-  		var idx, len;
 
-  		if (this == null) {
-  			throw new TypeError("indexOf called on null or undefined");
-  		}
-
-  		for (idx = 0, len = this.length; idx < len; ++idx) {
-  			if (this[idx] === elem) {
-  				return idx;
-  			}
-  		}
-
-  		return -1;
-  	};
-
-  	function difference(a, b) {
-  		var idx, len;
-  		var res = [];
-
-  		for (idx = 0, len = a.length; idx < len; ++idx) {
-  			if (indexOf.call(b, a[idx]) === -1) {
-  				res.push(a[idx]);
-  			}
-  		}
-  		for (idx = 0, len = b.length; idx < len; ++idx) {
-  			if (indexOf.call(a, b[idx]) === -1) {
-  				res.push(b[idx]);
-  			}
-  		}
-      console.log("RES : " + res)
-  		return res;
-  	}
 /**
  * DELETE /account
  */
