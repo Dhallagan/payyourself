@@ -10,10 +10,6 @@ dotenv.load({
 });
 
 const plaidClient = require('../config/plaid');
-
-
-
-
 var agenda = new Agenda ({db:{address: process.env.MONGODB , collection: 'jobs'}});
 
 
@@ -22,8 +18,14 @@ var agenda = new Agenda ({db:{address: process.env.MONGODB , collection: 'jobs'}
  *
  */
 agenda.on('ready', () => {
-  agenda.now('Fetch New Transactions');
-  agenda.every('1 minute', 'Fetch New Transactions');
+
+  var job = agenda.create('Fetch New Transactions');
+  job.save(function(err) {
+    console.log("Job successfully saved");
+  });
+  job.repeatEvery('30 0 * * *', {
+    timezone: 'America/New_York'
+  });
   agenda.start()
 })
 
@@ -48,13 +50,11 @@ agenda.on('complete', function(job) {
    console.log("PROCESSING: Fetch New Transactions");
 
    User.find({}).then(function(users) {
-     console.log(users);
      users.forEach(function(user) {
-      console.log(user);
          const access_token = user.plaidAccessKey;
-         console.log("Access Token: " + access_token)
+        //  console.log("Access Token: " + access_token)
 
-         var startDate = moment().subtract(183, 'days').format('YYYY-MM-DD');
+         var startDate = moment().subtract(190, 'days').format('YYYY-MM-DD');
          var endDate = moment().subtract(0, 'days').format('YYYY-MM-DD');
          plaidClient.getTransactions(access_token, startDate, endDate, {
              count: 500,
@@ -64,8 +64,8 @@ agenda.on('complete', function(job) {
                  console.log(JSON.stringify(error));
                  return console.log({error: error});
              }
-             console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
-             console.log(transactionsResponse.transactions);
+            //  console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
+            //  console.log(transactionsResponse.transactions);
 
              //GET NEW AND OLD TRANSACTIONS
              transactions = transactionsResponse.transactions
@@ -87,10 +87,10 @@ agenda.on('complete', function(job) {
                userTransactions.sort(custom_sort)
                user.transactions = userTransactions
              }
-             console.log(user.transactions)
+            //  console.log(user.transactions)
 
              user.save(function(err){
-               console.log({ user: user, msg: 'Transactions have been updated.' });
+               console.log({ /*user: user,*/ msg: newTransactions.length +' new transactions added for ' + user.email + ' have been updated.' });
              });
 
          });
