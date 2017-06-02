@@ -256,28 +256,23 @@ exports.plaidPost = function(req, res, next) {
               }
               console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
               console.log(transactionsResponse.transactions);
+              
               //GET NEW AND OLD TRANSACTIONS
               transactions = transactionsResponse.transactions
               userTransactions = user.transactions
+
               //COMPARE THEM TO FIND DIFFERENCE IN
-              var onlyInA = transactions.filter(function(current){
+              var newTransactions = transactions.filter(function(current){
                   return userTransactions.filter(function(current_b){
                       return current_b.transaction_id == current.transaction_id
                   }).length == 0
               });
 
-              var onlyInB = userTransactions.filter(function(current){
-                  return transactions.filter(function(current_a){
-                      return current_a.transaction_id == current.transaction_id
-                  }).length == 0
-              });
 
-              var result = onlyInA;
-              
               if(userTransactions == null){
                 user.transactions = transactions
               } else {
-                userTransactions = userTransactions.concat(result)
+                userTransactions = userTransactions.concat(newTransactions)
                 userTransactions.sort(custom_sort)
                 user.transactions = userTransactions
               }
